@@ -1,5 +1,4 @@
 import random
-import sys
 
 playerHand = []
 playerValue = 0
@@ -71,22 +70,15 @@ def dealerBlackjackCheck():
         game()
 
 def action():
-    if playerValue == 21:
-        print("You win!")
-        game()
-    elif playerValue > 21:
-        print("Bust. You lose.")
-        game()
-    elif dealerValue == 21:
-        print("Dealer wins.")
-        game()
-    elif dealerValue > 21:
-        dealerReveal()
-        print("Dealer busted! You win!")
-        game()
     act = input("Would you like to hit or stand? ")
     if act.lower().strip() == "hit":
         playerDraw()
+        if playerValue > 21:
+            print("Bust. You lose.")
+            game()
+        elif playerValue == 21:
+            print("You win!")
+            game()
         action()
     dealerReveal()
     while dealerValue <= 17:
@@ -103,7 +95,19 @@ def dealerReveal():
     print("Dealer's deck value:",dealerValue)
 
 def winChecker():
-    if playerValue < 22 and dealerValue > 17 and playerValue > dealerValue:
+    if playerValue == 21:
+        print("You win!")
+        game()
+    elif playerValue > 21:
+        print("Bust. You lose.")
+        game()
+    elif dealerValue == 21:
+        print("Dealer wins.")
+        game()
+    elif dealerValue > 21:
+        print("Dealer busted! You win!")
+        game()
+    elif playerValue < 22 and dealerValue > 17 and playerValue > dealerValue:
         print("You win!")
         game()
     elif dealerValue < 22 and playerValue < dealerValue:
