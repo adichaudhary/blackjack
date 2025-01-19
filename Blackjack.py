@@ -49,7 +49,7 @@ def playerValueAssigner(card):
 
 def dealerValueAssigner(card):
     global dealerValue
-    if "Ace" in card and dealerValue < 10:
+    if "Ace" in card and dealerValue <= 10:
         dealerValue += 11
     elif "Ace" in card and dealerValue > 10:
         dealerValue += 1
