@@ -6,7 +6,7 @@ pygame.init()
 
 #Pygame Constants
 FPS = 15
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -17,7 +17,9 @@ PLAYER_Y = 250
 
 #Display Init
 DISPLAY = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
-DISPLAY.fill(GREEN)
+background = pygame.image.load("table.jpg")
+background = pygame.transform.scale(background, (SCREEN_WIDTH,SCREEN_HEIGHT))
+DISPLAY.blit(background,(0,0))
 pygame.display.set_caption("Blackjack")
 
 #Game Variables
@@ -48,7 +50,7 @@ class Card:
     def load_card(self):
         self.fullName = random.choice(deck)
         self.printName = self.fullName.split("_")[0].capitalize() + " " + self.fullName.split("_")[1] + " " + self.fullName.split("_")[2].split(".")[0].capitalize()
-        random_image = pygame.image.load(rf"c:\Users\kumar\Desktop\Adi\CodingProjects\Python\blackjack\cards\{self.fullName}").convert_alpha()
+        random_image = pygame.image.load(rf"cards\{self.fullName}").convert_alpha()
         self.image = pygame.transform.scale(random_image, (100, 150))
         self.rect = self.image.get_rect()
 
