@@ -1,6 +1,6 @@
 # blackjack
-Blackjack beta in Python.
+Blackjack beta in Python/Pygame.
 
-Currently only hitting and standing. Need to add splitting, surrendering, doubling down, insurance.
+Original: Currently only hitting and standing. 
 
-Then will move to Pygame, add a GUI w/help screen, and clean up the code.
+Moved to GUI, now need to implement add original features, then splitting, surrendering, doubling down, insurance, then a help screen.
